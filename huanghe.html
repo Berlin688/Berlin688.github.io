@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>黄河——中华民族的母亲河 | 壮丽画卷·生态人文</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+            background-color: #fefaf5;
+            color: #2c2418;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --river-gold: #e6b422;
+            --river-deep: #b55b1a;
+            --stone: #7a5a4b;
+            --dark-earth: #3e2c1f;
+            --accent-green: #4f7a3b;
+            --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 头部 hero 区域 */
+        .hero {
+            background: linear-gradient(115deg, #fff0e0 0%, #fbe5d0 100%);
+            border-bottom: 1px solid rgba(181, 91, 26, 0.15);
+            padding: 3.5rem 0 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #b54b1a, #e6a017);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero-tagline {
+            font-size: 1.25rem;
+            color: #5a3e2b;
+            border-left: 4px solid #e6b422;
+            padding-left: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        .stat {
+            background: rgba(255, 255, 245, 0.85);
+            backdrop-filter: blur(4px);
+            border-radius: 2rem;
+            padding: 0.5rem 1.2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-number {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: #ba6b2c;
+        }
+
+        /* 导航栏 */
+        .nav-links {
+            background-color: white;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            border-bottom: 1px solid #f0e2d4;
+        }
+
+        .nav-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            list-style: none;
+            padding: 0.8rem 0;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: #4a3727;
+            font-weight: 500;
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+        }
+
+        .nav-list a:hover {
+            background: #f7e5d6;
+            color: #b55218;
+        }
+
+        section {
+            padding: 4rem 0;
+            border-bottom: 1px solid #efe1d2;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2.2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 65%;
+            height: 4px;
+            background: linear-gradient(90deg, #e6b422, #f4c978);
+            border-radius: 4px;
+            margin-top: 8px;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1.8rem;
+            padding: 1.8rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
+            transition: all 0.25s ease;
+            border: 1px solid #f5e4d6;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: #fbdec6;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #a6521f;
+        }
+
+        .problem-list,
+        .solution-list {
+            list-style-type: none;
+        }
+
+        .problem-list li,
+        .solution-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.6rem;
+            position: relative;
+            line-height: 1.45;
+        }
+
+        .problem-list li::before {
+            content: "⚠️";
+            position: absolute;
+            left: -4px;
+            top: 0;
+        }
+
+        .solution-list li::before {
+            content: "🌱";
+            position: absolute;
+            left: -4px;
+            top: 0;
+        }
+
+        /* 引用区块 + 精神 */
+        .spirit-quote {
+            background: #fcf6ed;
+            padding: 2rem 2.2rem;
+            border-radius: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            border-left: 8px solid #e6b422;
+            margin: 2rem 0;
+        }
+
+        /* 景观布局 真实图片 */
+        .landmarks-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.8rem;
+        }
+
+        .landmark-item {
+            display: grid;
+            grid-template-columns:1fr 1fr;
+            gap: 2rem;
+            background: white;
+            border-radius: 2rem;
+            padding: 1.4rem;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #f1e1cf;
+            align-items: center;
+            width:100%;
+        }
+
+        @media (max-width: 760px) {
+            .landmark-item {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+
+        .landmark-text h3 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #b45a28;
+            margin-bottom: 0.6rem;
+        }
+
+        .landmark-text p {
+            margin-top: 0.5rem;
+            color: #2e241c;
+        }
+
+        /* 真实图片样式 */
+        .real-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 1.4rem;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+        }
+        .real-img:hover {
+            transform: scale(1.01);
+        }
+
+        .intro-img {
+            width: 100%;
+            max-height: 280px;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .gallery-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .gallery-col {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        footer {
+            background-color: #2b241c;
+            color: #f0e1ce;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .watermark-note {
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        .img-caption {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #6f553d;
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <div class="container hero-content">
+        <h1>黄河<br>华夏血脉·大河之魂</h1>
+        <div class="hero-tagline">中华民族的母亲河 | 世界含沙量最高的河流 | 五千年农耕文明的摇篮</div>
+        <div class="hero-stats">
+            <div class="stat"><span class="stat-number">5464 km</span><br>全长</div>
+            <div class="stat"><span class="stat-number">9省区</span><br>流经地域</div>
+            <div class="stat"><span class="stat-number">“地上河”</span><br>世界奇观·千年治黄</div>
+        </div>
+    </div>
+</header>
+
+<div class="nav-links">
+    <div class="container">
+        <ul class="nav-list">
+            <li><a href="#intro">🌾 总体介绍</a></li>
+            <li><a href="#ecology">🌍 生态与治理</a></li>
+            <li><a href="#spirit">💧 黄河精神</a></li>
+            <li><a href="#landmarks">🏞️ 标志性景观</a></li>
+        </ul>
+    </div>
+</div>
+
+<main>
+    <!-- 一、总体介绍 -->
+    <section id="intro">
+        <div class="container">
+            <h2 class="section-title">🏞️ 大河溯源 · 文明摇篮</h2>
+            <div class="card" style="padding: 2rem;">
+                <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: flex-start;">
+                    <div style="flex: 1.2;">
+                        <p style="font-size: 1.08rem; margin-bottom: 1rem;">黄河发源于青藏高原巴颜喀拉山脉北麓的<span style="font-weight:700">约古宗列盆地</span>，是中国第二长河，也是世界上含沙量最高的河流。全长约5464公里，流经青海、四川、甘肃、宁夏、内蒙古、陕西、山西、河南、山东9个省级行政区，最终注入渤海。</p>
+                        <p style="font-size: 1.02rem;">作为华夏文明的摇篮，黄河承载着深厚的历史文化底蕴。黄河流域地势平坦、土壤肥沃，早在新石器时代，先民就在此定居耕作，形成了以种植小麦、谷子为主的农耕体系，奠定了中国古代农业文明的基础。</p>
+                        <div style="margin-top: 1.2rem; background: #fef2e6; padding: 1rem; border-radius: 1.2rem;">
+                            <span style="font-weight: 600;">🌾 农耕智慧 · 生生不息</span>
+                            <p style="margin-top: 0.4rem;">从仰韶文化到中原文明，黄河滋养了璀璨的农耕文化，粟作与麦作体系影响东亚数千年。</p>
+                        </div>
+                    </div>
+                    <div style="flex: 0.9;">
+                        <img class="real-img zoomable" src="huanghe-upstream.jpg" alt="黄河上游壮丽风光">
+                        <div class="img-caption">黄河上游 · 清澈与磅礴的交汇</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 二、生态问题及解决方法 -->
+    <section id="ecology">
+        <div class="container">
+            <h2 class="section-title">🌿 黄河生态 · 挑战与新生</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>⚠️ 曾经及现存主要生态问题</h3>
+                    <ul class="problem-list">
+                        <li><strong>水土流失严重</strong> – 黄土高原土质疏松，植被覆盖率低，年均输沙量极高，形成“地上河”，洪涝频发。</li>
+                        <li><strong>水资源短缺与供需矛盾</strong> – 降水分布不均，中下游人口密集，部分河段断流，影响生态平衡。</li>
+                        <li><strong>水污染问题</strong> – 工业废水、生活污水直排，部分河段水质恶化，威胁饮用水安全。</li>
+                        <li><strong>生态植被破坏</strong> – 过度放牧、乱砍滥伐导致湿地萎缩，生物多样性减少。</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>✅ 针对性解决方法 · 系统治理</h3>
+                    <ul class="solution-list">
+                        <li><strong>水土流失治理</strong> – 退耕还林还草，种植沙棘、油松，修建梯田、淤地坝。</li>
+                        <li><strong>水资源调控与保护</strong> – 小浪底等水利枢纽调水调沙，南水北调中线补水，推广节水灌溉。</li>
+                        <li><strong>水污染治理</strong> – 建设污水处理厂，严控农业面源污染，建立水质监测体系。</li>
+                        <li><strong>生态修复与保护</strong> – 上游湿地保护、生态廊道建设，全民护河行动。</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- 治理成效真实图片 -->
+            <div class="gallery-row">
+                <div class="gallery-col">
+                    <img class="real-img" style="height: 200px;" src="huanghe-upstream1.jpg" alt="黄土高原梯田" >
+                    <div class="img-caption">黄土高原梯田 · 水土保持典范</div>
+                </div>
+                <div class="gallery-col">
+                    <img class="real-img" style="height: 200px;" src="huanghe-upstream2.jpg" alt="小浪底水利枢纽">
+                    <div class="img-caption">小浪底水利枢纽 · 调水调沙</div>
+                </div>
+                <div class="gallery-col">
+                    <img class="real-img" style="height: 200px;" src="huanghe-upstream3.jpg" alt="黄河湿地生态" >
+                    <div class="img-caption">黄河湿地 · 候鸟天堂</div>
+                </div>
+            </div>
+            <div class="spirit-quote" style="margin-top: 1.8rem;">
+                🌟 经过数十年系统治理，黄河连续20多年不断流，主要水质稳步提升，黄土高原植被覆盖率大幅增加，“母亲河”正重焕生机。
+            </div>
+        </div>
+    </section>
+
+    <!-- 三、黄河精神 -->
+    <section id="spirit">
+        <div class="container">
+            <h2 class="section-title">✨ 黄河精神 · 民族之魂</h2>
+            <div class="spirit-quote">
+                <p style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.8rem; color: #bc631f;">“团结、务实、拼搏、奉献”</p>
+                <p>黄河九曲奔腾、攻坚克难的壮阔景象，孕育了自强不息、百折不挠的奋斗品格；治理黄河需沿岸同心协力，彰显了团结协作、共克时艰的精神底色；先民顺应河情、科学治黄，体现了求真务实、因地制宜的务实作风。黄河滋养万物、孕育文明的特质，承载着无私奉献、滋养华夏的情怀。黄河精神深深融入民族血脉，激励中华民族奋勇前行，与农耕文明深度交融，成为华夏文明绵延不绝的精神支撑。</p>
+            </div>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; margin: 1.8rem 0 1rem;">
+                <div style="flex:1; background: #faf0e6; padding: 1rem; border-radius: 1.2rem; text-align: center;"><span style="font-size:2rem;">💪</span><br>百折不挠</div>
+                <div style="flex:1; background: #faf0e6; padding: 1rem; border-radius: 1.2rem; text-align: center;"><span style="font-size:2rem;">🤝</span><br>团结协作</div>
+                <div style="flex:1; background: #faf0e6; padding: 1rem; border-radius: 1.2rem; text-align: center;"><span style="font-size:2rem;">🧭</span><br>科学务实</div>
+                <div style="flex:1; background: #faf0e6; padding: 1rem; border-radius: 1.2rem; text-align: center;"><span style="font-size:2rem;">🌾</span><br>无私奉献</div>
+            </div>
+            <!-- 壶口瀑布真实图片 精神象征 -->
+            <img class="real-img" style="width:100%; height: 300px; object-fit: cover; border-radius: 1.5rem;" src="huanghe-upstream4.jpg" alt="壶口瀑布磅礴气势">
+            <div class="img-caption">壶口瀑布 · 黄河精神象征 · 奔腾咆哮 民族气魄</div>
+        </div>
+    </section>
+
+    <!-- 四、标志性景观及地表建筑 (全部真实图片) -->
+    <section id="landmarks">
+        <div class="container">
+            <h2 class="section-title">📸 黄河印记 · 标志性景观与建筑</h2>
+            <div class="landmarks-grid">
+                <!-- 1. 壶口瀑布 -->
+                <div class="landmark-item">
+                    <div class="landmark-text">
+                        <h3>🌊 壶口瀑布 · 黄河魂</h3>
+                        <p>位于山西吉县与陕西宜川交界处，是世界上最大的黄色瀑布。黄河水从数百米宽的河床骤然收束，从20多米高的峡谷倾泻而下，形成“千里黄河一壶收”的壮观景象。瀑布水量丰沛时，浪涛翻滚如万马奔腾，声震数里，还会出现“水底冒烟”“彩桥通天”等奇特景观。它是黄河自然力量的极致体现，承载着中华民族不屈不挠的精神象征。</p>
+                    </div>
+                    <img class="real-img" src="huanghe-upstream5.jpg" alt="壶口瀑布">
+                <!-- 2. 黄河九曲第一湾 -->
+                <div class="landmark-item">
+                    <div class="landmark-text">
+                        <h3>🌾 黄河九曲第一湾 · 上游生态明珠</h3>
+                        <p>位于四川若尔盖草原，是黄河在四川境内的唯一一段河道。黄河流经此处，受地形阻挡与白河汇合，划出一道优美的“S”形大弯，形成“落霞与孤鹜齐飞，秋水共长天一色”的诗意画面。这里是黄河上游重要的湿地生态保护区，也是黑颈鹤、大天鹅等珍稀鸟类的栖息地，展现了黄河源头生态系统的原始风貌。</p>
+                    </div>
+                    <img class="real-img" src="huanghe-upstream7.jpg" alt="黄河九曲第一湾">
+                </div>
+                <!-- 3. 兰州中山桥 -->
+                <div class="landmark-item">
+                    <div class="landmark-text">
+                        <h3>🌉 兰州中山桥 · 天下黄河第一桥</h3>
+                        <p>位于甘肃兰州，始建于1909年，是黄河上第一座永久性钢铁桥梁，由德国设计、中国工匠施工建成。桥身全长233.5米，横跨黄河两岸，历经百年风雨依然坚固。1928年为纪念孙中山先生更名为“中山桥”。它不仅是兰州的地标，更见证了黄河沿岸的城市发展与中西文化交流，是黄河近代历史的重要符号。</p>
+                    </div>
+                    <img class="real-img" src="huanghe-upstream6.jpg" alt="兰州中山桥">
+                </div>
+                <!-- 4. 乾坤湾 -->
+                <div class="landmark-item">
+                    <div class="landmark-text">
+                        <h3>☯️ 乾坤湾 · 天然太极奇观</h3>
+                        <p>位于陕西延川，是黄河蛇曲地貌的精华所在。黄河在这里形成了320度的大转弯，从高空俯瞰，宛如一幅天然的太极八卦图，因此得名“乾坤湾”。相传人文始祖伏羲氏曾在此观象，受这一地貌启发创立了八卦。峡谷深切、河水蜿蜒，两岸黄土高原的地貌与黄河水相互映衬，既展现了黄河的自然力量，也承载着古老的华夏文明传说。</p>
+                    </div>
+                    <img class="real-img" src="huanghe-upstream8.jpg" alt="乾坤湾黄河蛇曲">
+                </div>
+            </div>
+            <div style="margin-top: 2rem; background: #f9efe6; padding: 1rem; border-radius: 1.5rem; font-size: 0.9rem; text-align: center;">
+                🏞️ 从壶口瀑布的雷霆万钧到乾坤湾的阴阳哲思，每一处景观都是黄河与华夏文明交融的见证。
+            </div>
+        </div>
+    </section>
+
+    <!-- 农耕文化与结语 -->
+    <section style="background: #fff9f2; border-bottom: none;">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: space-between;">
+                <div style="flex: 1;">
+                    <h3 style="font-size: 1.6rem; font-weight: 600; color: #bb6b2a;">🌾 大河农耕 · 华夏根基</h3>
+                    <p>黄河流域的农耕文明以旱作农业为核心，小麦、谷子种植历史悠久，精耕细作的传统智慧影响了东亚农业文明。从裴李岗文化到仰韶文化，黄河先民创造了灿烂的彩陶文化与礼制雏形，奠定中华文明的根基。黄河水、黄土高原与农耕智慧共同构铸了坚韧、勤劳的民族性格。</p>
+                </div>
+                <div style="flex: 0.8; background: #e7d6c4; border-radius: 2rem; padding: 1.5rem; text-align: center; font-style: italic;">
+                    “黄河之水天上来，奔流到海不复回”<br>——李白
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>🌊 黄河——中华民族的母亲河 | 传承黄河精神 保护母亲河生态</p>
+        <p style="margin-top: 0.6rem; font-size: 0.8rem;">基于黄河文化史料与生态治理成果 | 弘扬大河文明，践行绿色发展</p>
+        <p class="watermark-note" style="margin-top: 0.5rem;">团结·务实·拼搏·奉献 —— 黄河精神永续</p>
+    </div>
+</footer>
+
+<script>
+    // 平滑锚点滚动
+    document.querySelectorAll('.nav-list a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>
